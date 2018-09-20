@@ -1,40 +1,31 @@
 {% load static wagtailuserbar %}
 
-<!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-                {% with self.get_site.site_name as site_name %}
-                    {% if site_name %}- {{ site_name }}{% endif %}
-                {% endwith %}
-            {% endblock %}
-        </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+{% block head %}
+    {% include "includes/head.html" %}
+{% endblock head %}
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/legra_site.css' %}">
 
-        {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
-    </head>
 
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+<body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
+    {% block header %}
+        {# Header contains the main_navigation block #}
+        {% include "includes/header.html" with parent=site_root calling_page=self %}
+    {% endblock header %}
 
-        {% block content %}{% endblock %}
+    {% block messages %}
+        {% include "includes/messages.html" %}
+    {% endblock messages %}
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/legra_site.js' %}"></script>
 
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
-    </body>
+    {% block content %}
+    {% endblock content %}
+
+    {# Global javascript #}
+    <script type="text/javascript" src="{% static 'js/legra_site.js' %}"></script>
+
+    {% block extra_js %}
+        {# Override this in templates to add extra javascript #}
+    {% endblock %}
+</body>
 </html>

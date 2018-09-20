@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %} template-homepage {% endblock %}
+
+{% block content %}
+    <div id="main">
+                <div class="container">
+                    <div class="holder-fon">
+                        <div class="holder-girl"><img src="images/bg-2.png" alt="img"/></div>
+                        <div class="holder-text">
+                            {{ page.body | richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}
