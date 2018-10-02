@@ -21,3 +21,5 @@ __pycache__
 Dockerfile
 media/
 __init__.py
+/legra_site/static/images/
+/legra_site/static/js/libs/

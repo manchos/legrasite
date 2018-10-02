@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load columns %}
+
+{% block body_class %} template-homepage {% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div class="container">
+
+            <div class="holder-fon">
+
+                <div class="holder-text">
+
+                        <nav class="gmenu">
+                            <a id="works" class="active" href="works.html">работы</a>
+                            <a id="design" href="designp.html">дизайн проект</a>
+                        </nav>
+
+                    <div id="owl-demo" class="owl-carousel">
+
+
+
+                        {% for col in designs|columns:4 %}
+                            {% if forloop.first %}
+                            <div class="sliderdiv item">
+                                <table class="slidertab">
+                            {%  endif %}
+                            <tr>
+                                {% for design in col %}
+                                    <td>
+                                        <a class="fancybox" rel="group" href="images/works/big/big_1.jpg">
+                                            <img src="images/works/1.png" />
+                                        </a>
+                                        <div class="desc">Проект квартиры в ЖК "Дубровка"<br /><a href="work.html">Подробнее</a></div>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                            {%  if forloop.counter|divisibleby:"3" %}
+                                </table>
+                            </div>
+
+                            <div class="sliderdiv item">
+                                <table class="slidertab">
+                            {% endif %}
+                            {%  if forloop.last %}
+                                 </table>
+                            </div>
+                            {% endif %}
+
+                        {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+{% endblock %}

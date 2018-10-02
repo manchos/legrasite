@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="[[++modx_charset]]">
+		<title>[[++site_name]] - [[*pagetitle]]</title>
+
+		<meta name="description" content="[[*description]]" />
+       	<meta name="format-detection" content="telephone=no"/>
+        <meta charset="[[++modx_charset]]" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+		[[$TPL.[[*template]].head]]
+		[[+MinifyX.css]]
+        [[+MinifyX.javascript]]
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css?family=Cuprum&subset=cyrillic,cyrillic-ext');
+        </style>
+
+    </head>
+        <body>
+            <div id="wrapper">
+                <header id="header">
+                    <div class="container">
+                        <strong class="logo">
+                            <a href="[[++site_url]]">Legra</a>
+                        </strong>
+                        <div class="holder-header">
+
+    {set $uri = $_modx->makeUrl($_modx->resource.id)}
+
+
+                            <nav id="nav">
+[[--Wayfinder? &startId=`0`  &includeDocs=`9,17,25` &level=`0`]]
+[[pdoMenu? &resources =`9,17,25`  &sortby=`id` &parents=`0`]]
+
+<!--                                 <ul>
+                                    <li {if $uri=='interiors/works/'}class="active"{/if}><a href="[[++site_url]]interiors/works/">интерьеры</a></li>
+                                    <li {if $uri=='graphic-design/logotipyi-i-tm/'}class="active"{/if}><a href="[[++site_url]]graphic-design/logotipyi-i-tm/">графический дизайн</a></li>
+                                    <li {if $uri=='other.html'}class="active"{/if}><a href="[[++site_url]]other.html">разное</a></li>
+                                </ul> -->
+                            </nav>
+
+                            <div class="holder-contact">
+                                <a {if $uri=='/' or $uri=='index.html'}class="active"{/if} id="home" href="[[++site_url]]index.html">home</a>
+                                <a {if $uri=='contacts.html'}class="active"{/if} id="mail" href="[[++site_url]]contacts.html">mail</a>
+                            </div>
+                        </div>
+
+
+                        <div class="slider">
+                            <ul class="bxslider">
+                                <li><img src="/assets/images/work_foto1.png" /></li>
+                                <li><img src="/assets/images/work_foto2.png" /></li>
+                                <li><img src="/assets/images/work_foto3.png" /></li>
+                                <li><img src="/assets/images/work_foto4.png" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+                <div id="main">
+                    <div class="container">
+
+		<!--[if lte IE 8]>
+		<script type="text/javascript" src="js/libs/ie.js"></script><![endif]-->
+                        <div class="holder-fon">
+                            [[$TPL.[[*template]]]]
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer">
+                <div class="container">
+                    <span class="copyright">&#169; 2008 Legra</span>
+                </div>
+            </footer>
+	</body>
+</html>

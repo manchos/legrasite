@@ -1,4 +1,5 @@
 {#% load navigation_tags %#}
+{% load static %}
 
 <header id="header">
     <div class="container">
@@ -8,7 +9,7 @@
                 <ul>
                     <li><a href="works.html">интерьеры</a></li>
                     <li><a href="designs.html">графический дизайн</a></li>
-                    <li><a href="#">разное</a></li>
+                    <li><a href="#">другое</a></li>
                 </ul>
             </nav>
             <div class="holder-contact">
@@ -18,10 +19,10 @@
         </div>
         <div class="slider">
             <ul class="bxslider">
-                <li><img src="images/work_foto1.png" /></li>
-                <li><img src="images/work_foto2.png" /></li>
-                <li><img src="images/work_foto3.png" /></li>
-                <li><img src="images/work_foto4.png" /></li>
+                <li><img src="{% static "images/work_foto1.png" %}" /></li>
+                <li><img src="{% static "images/work_foto2.png" %}" /></li>
+                <li><img src="{% static "images/work_foto3.png" %}" /></li>
+                <li><img src="{% static "images/work_foto4.png" %}" /></li>
             </ul>
         </div>
     </div>

@@ -28,6 +28,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.56.10']
 INSTALLED_APPS = [
     'home',
     'blog',
+    'design_work',
     'search',
 
     'wagtail.contrib.forms',

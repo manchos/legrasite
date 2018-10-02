@@ -1,0 +1,558 @@
+
+
+
+body {
+    margin:0;
+    color:#492507;
+    font: 18px/22px "Arial",sans-serif;
+    background: url("../images/img-1.jpg") repeat;
+}
+
+/*@font-face {
+    font-family: 'Cuprum';
+    src: url('../fonts/cuprum.eot');
+    src: local('☺'), url('../fonts/cuprum.woff') format('woff'), url('../fonts/cuprum.ttf') format('truetype'), url('../fonts/cuprum.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+
+img {
+    border-style:none;
+}
+a {
+    color:#000;
+    outline:none;
+}
+a:hover {
+    text-decoration:none;
+}
+* {
+    outline:none;
+}
+input, textarea, select {
+    font:100% "Arial",sans-serif;
+    vertical-align:middle;
+    /*-webkit-appearance:none; dlya IOS*/
+}
+form, fieldset {
+    margin:0;
+    padding:0;
+    border-style:none;
+}
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figure,
+menu,
+dialog {
+    display: block;
+}
+ul, ol {list-style:none; margin:0 0 10px; padding:0;}
+dl {margin:0 0 10px;}
+nav ul, nav ol {list-style:none; list-style-image: none; margin:0; padding:0;}
+ul li {list-style: none; list-style: none outside;}
+p {margin:0 0 10px;}
+h1 {font-size:30px; line-height:33px; margin:0 0 18px;}
+h2 {font-size:50px; line-height:50px; margin:0 0 18px;}
+h3 {font-size:26px; line-height:29px; margin:0 0 16px;}
+h4 {font-size:24px; line-height:27px; margin:0 0 14px;}
+h5 {font-size:22px; line-height:25px; margin:0 0 12px;}
+h6 {font-size:20px; line-height:23px; margin:0 0 10px;}
+a { text-decoration:none; outline:none;}
+input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+}
+textarea:-moz-placeholder {color:#000000;}
+textarea::-moz-placeholder {color:#000000;opacity:1;}
+textarea::-webkit-input-placeholder {color:#000000;}
+textarea:-ms-input-placeholder {color:#000000;}
+textarea::placeholder {color:#000000;}
+input:-moz-placeholder {color:#000000;}
+input::-moz-placeholder {color:#000000;opacity:1;}
+input::-webkit-input-placeholder {color:#000000;}
+input:-ms-input-placeholder {color:#000000;}
+input::placeholder {color:#000000;}
+/* =============================================================================
+	MAIN
+	========================================================================== */
+html,body {
+    height: 100%;
+    margin: 0;
+     min-width: 1150px;
+    -webkit-text-size-adjust: none;
+}
+#wrapper {
+    /*overflow: hidden;* ydalit esle footer ne prebit*/
+  
+}
+* html #wrapper {
+    height: 100%;
+}
+.container{
+    position: relative;
+    width: 1122px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+#header .container:before{
+    content: '';
+    position: absolute;
+    left: 61px;
+    z-index: 2;
+    top: 27px;
+    background: url("../images/bg-3.png") no-repeat;
+    width: 960px;
+    height: 810px;
+}
+#header .container:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+#header .container{
+    background: url("../images/bg-1.png") no-repeat;
+    width: 1122px;
+    height: 432px;
+}
+.logo {
+    position: absolute;
+    z-index: 3;
+    left: -162px;
+    top: 0;
+    display: block;
+    background:url("../images/bg-logo.png") no-repeat;
+    width: 386px;
+    height: 249px;
+    text-indent:-9999px;
+    overflow:hidden;
+    margin:0;
+}
+.logo a{
+    display: block;
+    height: 100%;
+}
+.holder-header{
+    float: left;
+    width: 470px;
+}
+#nav{
+    position: relative;
+    z-index: 2;
+    padding: 60px 0 0 250px;
+}
+#nav ul{
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+}
+#nav li{
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+#nav a{
+    text-indent: -9999px;
+    overflow: hidden;
+}
+#nav li:first-child{
+    margin: 0 0 0 88px;
+}
+#nav li:first-child a{
+    display: block;
+    background: url('../images/work_knopki_off.png') no-repeat -139px -48px;
+    width: 182px;
+    height: 61px;
+}
+#nav li.active:first-child a,
+#nav li:first-child a:hover{
+    background: url('../images/bg-sprite.png') no-repeat -89px -99px;
+}
+#nav li:nth-child(2){
+    margin: 0 0 2px 1px
+}
+#nav li:nth-child(2) a{
+    display: block;
+    background: url('../images/bg-sprite.png') no-repeat -50px -198px;
+    width: 260px;
+    height: 85px;
+}
+#nav li.active:nth-child(2) a,
+#nav li:nth-child(2) a:hover{
+    background: url('../images/bg-sprite.png') no-repeat -50px -306px;
+}
+#nav li:last-child{
+    margin: 0 0 0 19px;
+}
+#nav li:last-child a{
+    display: block;
+    background: url('../images/bg-sprite.png') no-repeat -97px -428px;
+    width: 163px;
+    height: 60px;
+}
+#nav li.active:last-child a,
+#nav li:last-child a:hover{
+    background: url('../images/bg-sprite.png') no-repeat -92px -519px;
+}
+.holder-contact{
+    position: relative;
+    z-index: 2;
+    padding: 16px 0 0 233px;
+    font-size: 0;
+    line-height: 0;
+}
+.holder-contact a{
+    overflow: hidden;
+    text-indent: -9999px;
+    display: inline-block;
+    vertical-align: top;
+}
+#home{
+    background: url('../images/work_knopki_off.png') no-repeat -40px -265px;
+    width: 108px;
+    height: 83px;
+}
+a#home.active,
+#home:hover{
+    background: url('../images/bg-sprite.png') no-repeat -26px -759px;
+}
+#mail {
+    background: url('../images/work_knopki_off.png') no-repeat -161px -257px;
+    width: 108px;
+    height: 81px;
+    margin: 10px 0 0 21px;
+}
+a#mail.active,
+#mail:hover{
+    background: url('../images/bg-sprite.png') no-repeat -200px -759px;
+}
+.slider{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 540px;
+    height: 407px;
+}
+.slider:before{
+    content: '';
+    position: absolute;
+    top: 27px;
+    z-index: 2;
+    right: -28px;
+    background: url("../images/bg-4.png") no-repeat;
+    width: 553px;
+    height: 393px;
+}
+.holder-girl{
+    float: left;
+    width: 411px;
+    height: 604px;
+    margin: 0 19px 0 0;
+    z-index: 2;
+    position: relative;
+    top: -29px;
+}
+.holder-girl2{
+    float: right;
+    width: 500px;
+    height: 370px;
+    margin: 0 -3px 0 0;
+    z-index: 2;
+    position: relative;
+    bottom: -74px;
+}
+p.contacts{
+    margin: 0px 25px 0px 100px;
+    font-size: 30px;
+    font-family: 'Times New Roman';
+    line-height: 35px;
+}
+#main{
+    margin: 0 0 10px;
+}
+#main .container:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url("../images/img-5.jpg") no-repeat;
+    width: 1122px;
+    height: 419px;
+}
+.holder-fon{
+    background: url("../images/img-9.jpg") repeat-y;
+    padding: 0 113px 164px;
+}
+.holder-fon:after {
+    display:block;
+    content:"";
+    clear:both;
+}
+#main .container:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../images/img-7.jpg") repeat;
+    height: 111px;
+}
+.holder-text{
+    position: relative;
+    z-index: 3;
+    padding: 90px 73px 0 25px;
+}
+#footer {
+    text-align: center;
+    width: 100%;
+    margin: 0 0 106px;
+}
+#footer .container{
+    background: url("../images/bg-footer.png") no-repeat;
+    height: 229px;
+    padding: 40px;
+}
+.copyright{
+    display: inline-block;
+    font-size: 18px;
+    line-height: 20px;
+    color: #eecf97;
+}
+
+span.current{
+    font-family: "Cuprum";
+    font-size: 22px;
+    color: #492507;
+}
+/* =============================================================================
+	HasLayot
+	========================================================================== */
+.group:after {
+    display:block;
+    content:"";
+    clear:both;
+}
+
+/*==============================================
+    Slider
+============================================================   */
+
+.sliderdiv{
+/*    background: #7F6427;
+    background: url(../images/fontab.png); */
+    margin: 0 auto;
+    width:590px;
+    height: 434px;
+    padding:10px;
+    filter: Alpha(Opacity=50);
+    
+   
+
+}
+
+.sliderdiv ul{
+    margin:0 auto;
+    padding: 0; /* Убираем поля */
+    margin-left: 30px; /* Отступ слева */
+}
+
+.sliderdiv li{
+    padding-left: 15px;
+    list-style: disc;
+    line-height: 28px;
+}       
+
+
+.slidertab{
+    width: 100%;
+    margin:0 auto;
+    position: relative;
+    
+}
+.slidertab tr td{
+    margin: 0 0;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+}
+.holder-text{
+    position: relative;
+    z-index: 3;
+    padding: 90px 25px 0 25px;
+}
+
+.slidertab img:hover{
+    /*filter: Alpha(Opacity=100);
+    opacity: 1;*/
+    text-decoration: none;
+    cursor: pointer;
+      filter: none;
+  -webkit-filter: grayscale(0);
+
+}
+
+.slidertab img{
+/*    filter: Alpha(Opacity=50);
+    opacity: 0.5;
+*/
+-webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+
+}
+
+.slidertab .desc{
+    display: none;
+}
+   
+
+/*==============================================
+    Gorisontal menu
+============================================================   */
+.gmenu{
+    margin: -80px auto 30px -22px;
+    
+}
+
+.gmenu a{
+    font-size: 0;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.gmenu a#design_10{    
+    background: url('../images/works_2.png') no-repeat;
+    width: 174px;
+    height: 43px;
+}
+
+.gmenu a#design_10.active,
+.gmenu a#design_10:hover{
+    background: url('../images/works_1.png') no-repeat;
+}
+
+
+.gmenu a#design_11{
+    background: url('../images/design_2.png') no-repeat;
+    width: 231px;
+    height: 43px;
+}
+
+
+.gmenu a#design_11.active,
+.gmenu a#design_11:hover{
+    background: url('../images/design_1.png') no-repeat;
+}
+
+
+
+.gmenu a#design_26{    
+    background: url("../images/design-sprite.png") -10px -381px;
+    width: 231px;
+    height: 43px;
+}
+
+.gmenu a#design_26.active,
+.gmenu a#design_26:hover{
+    background: url('../images/design-sprite.png') -10px -169px;
+
+}
+
+.gmenu a#design_27{
+    background: url("../images/design-sprite.png") -10px -328px; 
+    width: 163px;
+    height: 43px;
+}
+.gmenu a#design_27.active,
+.gmenu a#design_27:hover{
+    background: url('../images/design-sprite.png') -10px -116px;
+}
+
+.gmenu a#design_28{
+    background: url("../images/design-sprite.png") -10px -275px; 
+    width: 174px;
+    height: 43px;
+}
+.gmenu a#design_28.active,
+.gmenu a#design_28:hover{
+    background: url('../images/design-sprite.png') -10px -63px; 
+}
+
+.gmenu a#design_29{
+    background: url("../images/design-sprite.png") -10px -222px;
+    width: 171px;
+    height: 43px;
+}
+
+.gmenu a#design_29.active,
+.gmenu a#design_29:hover{
+    background: url('../images/design-sprite.png') -10px -10px;
+}
+
+
+
+.fancybox-title {
+    color: #492713;
+}
+.fancybox-title a{
+    color: #492713;
+    text-decoration: underline;
+}
+
+.gmenu .amenu{
+    /*background: url('../images/design_2.png') repeat-x;*/
+    height: 43px;
+    vertical-align: middle;
+    /*#E1D2C0;*/
+    margin-bottom: -30px;
+    
+}
+.gmenu .amenu h3{
+    font-family: 'Cuprum';
+    text-transform: uppercase;
+    color: #492713;
+    /*text-shadow: 1px 1px 2px #E1D2C0;*/
+    text-align: center;
+    font-weight: 200;
+    margin: 0;
+    
+}
+
+
+/*------------------------- Cjcnfd --------------------------*/
+
+
+
+
+
+
+
+
+.holder-text .fancybox-title{
+    font-family: 'Cuprum';
+}
+.breadcrumps{
+    margin-bottom: 30px;
+}
+
+.breadcrumps a{
+    font-family: 'Cuprum';
+    font-size: 22px;
+    color: #492507;
+}
+
+.breadcrumps a:hover{
+    text-decoration: underline;
+    
+}
+
