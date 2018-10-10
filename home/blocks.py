@@ -10,13 +10,14 @@ class ImageBlock(StructBlock):
     Custom `StructBlock` for utilizing images with associated caption and
     attribution data
     """
-    image = ImageChooserBlock(required=True)
-    caption = CharBlock(required=False)
-    attribution = CharBlock(required=False)
+    image = ImageChooserBlock(required=True, label="Изображение")
+    caption = CharBlock(required=False, label='Описание')
+    attribution = CharBlock(required=False, label='др. аттрибуты')
 
     class Meta:
         icon = 'image'
-        template = "blocks/image_block.html"
+        # template = "blocks/image_block.html"
+        form_classname = 'Изображение'
 
 
 class HeadingBlock(StructBlock):
@@ -66,35 +67,4 @@ class BaseStreamBlock(StreamBlock):
         icon="fa-s15",
         template="blocks/embed_block.html")
 
-# StreamBlocks
-class BaseStreamBlock(StreamBlock):
-    """
-    Define the custom blocks that `StreamField` will utilize
-    """
-    heading_block = HeadingBlock()
-    paragraph_block = RichTextBlock(
-        icon="fa-paragraph",
-        template="blocks/paragraph_block.html"
-    )
-    image_block = ImageBlock()
-    block_quote = BlockQuote()
-    embed_block = EmbedBlock(
-        help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
-        icon="fa-s15",
-        template="blocks/embed_block.html")
 
-class BaseStreamBlock(StreamBlock):
-    """
-    Define the custom blocks that `StreamField` will utilize
-    """
-    heading_block = HeadingBlock()
-    paragraph_block = RichTextBlock(
-        icon="fa-paragraph",
-        template="blocks/paragraph_block.html"
-    )
-    image_block = ImageBlock()
-    block_quote = BlockQuote()
-    embed_block = EmbedBlock(
-        help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
-        icon="fa-s15",
-        template="blocks/embed_block.html")

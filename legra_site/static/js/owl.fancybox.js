@@ -31,12 +31,9 @@ $(document).ready(function(){
 
         }
     });
-
-
     // $('.slidertab .img img').hoverpulse({
     //     size: 170,  // number of pixels to pulse element (in each direction)
     //     speed: 400 // speed of the animation 
     // });
-
 });
 

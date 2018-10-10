@@ -1,0 +1,25 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div id="owl-demo" class="owl-carousel">
+    {% for table in designs %}
+        <div class="sliderdiv item">
+            <table class="slidertab">
+            {% for row in table %}
+                <tr>
+                {% for col in row %}
+                    <td>
+
+                        {% image col.image fill-133x133-c100 as image %}
+                        <a class="fancybox" rel="group" href="/media/{{ col.image.file }}">
+                            <img src="{{ image.url }}" width="{{ image.width }}"
+                                 height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+                        </a>
+                        <div class="desc">Проект квартиры в ЖК "Дубровка"<br /><a href="work.html">Подробнее</a></div>
+                    </td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+</div>

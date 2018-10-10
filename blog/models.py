@@ -26,3 +26,4 @@ class BlogPage(Page):
         FieldPanel('date'),
         StreamFieldPanel('body'),
     ]
+

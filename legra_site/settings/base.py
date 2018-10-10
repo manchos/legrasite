@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtail.contrib.styleguide',
 
     'modelcluster',
     'taggit',
+    'columns',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

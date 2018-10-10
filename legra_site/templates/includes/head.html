@@ -1,7 +1,7 @@
 {% load static wagtailuserbar %}
 
 
-	<head>
+
 		<meta charset="utf-8">
 		<title>
             {% block title %}
@@ -22,15 +22,16 @@
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.bxslider.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/legra_site.css' %}">
+
 
 		<script type="text/javascript" src="{% static 'js/libs/jquery-1.11.1.min.js' %}"></script>
+
 		<script type="text/javascript" src="{% static "js/libs/jquery.bxslider.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/jquery.main.js" %}"></script>
+        <script type="text/javascript" src="{% static 'js/legra_site.js' %}"></script>
 		<!--[if lte IE 8]>
-		<script type="text/javascript" src="{% static 'js/libs/ie.js' %}"></script><![endif]-->
-
-        {% block head-extra %}
-        {% endblock head-extra %}
+		    <script type="text/javascript" src="{% static 'js/libs/ie.js' %}"></script>
+        <![endif]-->
 
 
-	</head>

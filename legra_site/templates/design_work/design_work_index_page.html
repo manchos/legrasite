@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
-{% load wagtailimages_tags %}
-{% load columns %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
 
 {% block body_class %} template-homepage {% endblock %}
 
@@ -14,49 +13,68 @@
 
                 <div class="holder-text">
 
-                        <nav class="gmenu">
-                            <a id="works" class="active" href="works.html">работы</a>
-                            <a id="design" href="designp.html">дизайн проект</a>
-                        </nav>
+                    <nav class="gmenu">
+                        <a id="works" class="active" href="works.html">работы</a>
+                        <a id="design" href="designp.html">дизайн проект</a>
+                    </nav>
 
-                    <div id="owl-demo" class="owl-carousel">
-
-
-
-                        {% for col in designs|columns:4 %}
-                            {% if forloop.first %}
-                            <div class="sliderdiv item">
-                                <table class="slidertab">
-                            {%  endif %}
-                            <tr>
-                                {% for design in col %}
-                                    <td>
-                                        <a class="fancybox" rel="group" href="images/works/big/big_1.jpg">
-                                            <img src="images/works/1.png" />
-                                        </a>
-                                        <div class="desc">Проект квартиры в ЖК "Дубровка"<br /><a href="work.html">Подробнее</a></div>
-                                    </td>
-                                {% endfor %}
-                            </tr>
-                            {%  if forloop.counter|divisibleby:"3" %}
-                                </table>
-                            </div>
-
-                            <div class="sliderdiv item">
-                                <table class="slidertab">
-                            {% endif %}
-                            {%  if forloop.last %}
-                                 </table>
-                            </div>
-                            {% endif %}
-
-                        {% endfor %}
-
+                    {% include "blocks/design_images_table.html" %}
                 </div>
             </div>
-        </div>
         </div>
     </div>
 
 
 {% endblock %}
+
+{% block head-extra %}
+    <!-- Owl Carousel Assets -->
+    <link href="{% static 'js/libs/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/libs/owl-carousel/owl.theme.css' %}" rel="stylesheet">
+    <script src="{% static 'js/libs/owl-carousel/owl.carousel.js' %}"></script>
+
+    <!-- Add fancyBox -->
+    <script type="text/javascript" src="{% static 'js/libs/fancybox/jquery.fancybox.pack.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'js/libs/fancybox/jquery.fancybox.css' %}">
+    <script>
+         $(document).ready(function() {
+             $("#owl-demo").owlCarousel({
+
+                 navigation: true,
+                 slideSpeed: 300,
+                 paginationSpeed: 400,
+                 navigationText: [" ", " "],
+                 singleItem: true,
+                 scrollPerPage: false,
+                 pagination: false
+
+
+                 // "singleItem:true" is a shortcut for:
+                 // items : 1,
+                 // itemsDesktop : false,
+                 // itemsDesktopSmall : false,
+                 // itemsTablet: false,
+                 // itemsMobile : false
+
+             });
+             $(".fancybox").fancybox({
+                 helpers: {
+                     title: {
+                         type: 'inside',
+                         /*position: 'top'*/
+                     }
+                 },
+                 beforeLoad: function () {
+                     this.title = $(this.element).next('.desc').html();
+
+                 }
+             });
+         });
+    </script>
+{% endblock head-extra %}
+
+
+
+
+
+

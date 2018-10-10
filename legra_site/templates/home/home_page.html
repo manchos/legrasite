@@ -9,84 +9,13 @@
     <div id="main">
         <div class="container">
             <div class="holder-fon">
+                <div class="holder-girl">{% image page.image max-500x1000%}</div>
                 <div class="holder-text">
-
-                    <nav class="gmenu">
-                        <a id="works" class="active" href="works.html">работы</a>
-                        <a id="design" href="designp.html">дизайн проект</a>
-                    </nav>
-
-                    <div id="owl-demo" class="owl-carousel">
-                        <div class="sliderdiv item">
-                            <table class="slidertab">
-                                {% for story in design_list %}
-                                    <h2>
-                                      <a href="{{ story.get_absolute_url }}">
-                                        {{ story.headline|upper }}
-                                      </a>
-                                    </h2>
-                                    <p>{{ story.tease|truncatewords:"100" }}</p>
-                                {% endfor %}
-                                <tr>
-                                    <td>
-                                        <a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a>
-                                        <div class="desc">Проект квартиры в ЖК "Дубровка"<br /><a href="work.html">Подробнее</a></div>
-                                    </td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                </tr>
-                                <tr>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                </tr>
-                                <tr>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                    <td><a class="fancybox" rel="group" href="images/works/big/big_1.jpg"><img src="images/works/1.png" /></a></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="sliderdiv item">
-                            <table class="slidertab">
-                                <tr>
-                                <td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td>
-                                </tr>
-                                                                    <tr>
-                                <td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td>
-                                </tr>
-                                                                    <tr>
-                                <td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td><td><img src="images/works/1.png" /></td>
-                                </tr>
-                            </table>
-                        </div>
+                    {{ page.body | richtext }}
                 </div>
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-                <div class="container">
-                    <div class="holder-fon">
-                        <div class="holder-girl">{% image page.image max-500x1000%}</div>
-                        <div class="holder-text">
-                            {{ page.body | richtext }}
-                        </div>
-                    </div>
-                </div>
-
-        </div>
     </div>
 
 

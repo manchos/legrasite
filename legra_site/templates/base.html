@@ -3,10 +3,13 @@
 
 <!DOCTYPE html>
 <html>
+    <head>
     {% block head %}
         {% include "includes/head.html" %}
     {% endblock head %}
-
+    {% block head-extra %}
+    {% endblock head-extra %}
+    </head>
 
 
     <body class="{% block body_class %}{% endblock %}">

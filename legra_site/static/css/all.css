@@ -430,27 +430,27 @@ span.current{
     margin-right: 12px;
 }
 
-.gmenu a#design_10{    
+.gmenu a#works{
     background: url('../images/works_2.png') no-repeat;
     width: 174px;
     height: 43px;
 }
 
-.gmenu a#design_10.active,
-.gmenu a#design_10:hover{
+.gmenu a#works.active,
+.gmenu a#works:hover{
     background: url('../images/works_1.png') no-repeat;
 }
 
 
-.gmenu a#design_11{
+.gmenu a#design{
     background: url('../images/design_2.png') no-repeat;
     width: 231px;
     height: 43px;
 }
 
 
-.gmenu a#design_11.active,
-.gmenu a#design_11:hover{
+.gmenu a#design.active,
+.gmenu a#design:hover{
     background: url('../images/design_1.png') no-repeat;
 }
 
