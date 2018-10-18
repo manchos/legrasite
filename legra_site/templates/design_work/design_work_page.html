@@ -10,81 +10,38 @@
                     <div class="holder-fon">
 
                         <div class="holder-text">
-                            <div id="owl-demo" class="owl-carousel">
-                            {% for table in designs %}
-                                <div class="sliderdiv item">
-                                    <table class="slidertab">
-                                    {% for row in table %}
-                                        <tr>
-                                        {% for col in row %}
-                                            <td>
 
-                                                {% image col.value.image fill-133x133-c100 as image %}
-                                                <a class="fancybox" rel="group" href="/media/{{ col.value.image.file }}">
-                                                    <img src="{{ image.url }}" width="{{ image.width }}"
-                                                         height="{{ image.height }}" alt="{{ image.alt }}" class="" />
-                                                </a>
-                                                <div class="desc">{{ col.value.caption }}</div>
-                                            </td>
+                            <div class="owl-wrap">
+                                <div id="owl-demo" class="owl-carousel">
+                                {% for table in designs %}
+                                    <div class="sliderdiv item">
+                                        <table class="slidertab">
+                                        {% for row in table %}
+                                            <tr>
+                                            {% for col in row %}
+                                                <td>
+                                                    {% image col.value.image fill-133x133-c100 as image %}
+                                                    <a class="fancybox" rel="group" href="/media/{{ col.value.image.file }}">
+                                                        <img src="{{ image.url }}" width="{{ image.width }}"
+                                                             height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+                                                    </a>
+                                                    <div class="desc">{{ col.value.caption }}</div>
+                                                </td>
+                                            {% endfor %}
+                                            </tr>
                                         {% endfor %}
-                                        </tr>
-                                    {% endfor %}
-                                    </table>
+                                        </table>
+                                    </div>
+                                {% endfor %}
                                 </div>
-                            {% endfor %}
                             </div>
-
 
                         </div>
                     </div>
                 </div>
             </div>
-
-
 {% endblock %}
 
 {% block head-extra %}
-    <!-- Owl Carousel Assets -->
-    <link href="{% static 'js/libs/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'js/libs/owl-carousel/owl.theme.css' %}" rel="stylesheet">
-    <script src="{% static 'js/libs/owl-carousel/owl.carousel.js' %}"></script>
-
-    <!-- Add fancyBox -->
-    <script type="text/javascript" src="{% static 'js/libs/fancybox/jquery.fancybox.pack.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'js/libs/fancybox/jquery.fancybox.css' %}">
-    <script>
-         $(document).ready(function() {
-             $("#owl-demo").owlCarousel({
-
-                 navigation: true,
-                 slideSpeed: 300,
-                 paginationSpeed: 400,
-                 navigationText: [" ", " "],
-                 singleItem: true,
-                 scrollPerPage: false,
-                 pagination: false
-
-
-                 // "singleItem:true" is a shortcut for:
-                 // items : 1,
-                 // itemsDesktop : false,
-                 // itemsDesktopSmall : false,
-                 // itemsTablet: false,
-                 // itemsMobile : false
-
-             });
-             $(".fancybox").fancybox({
-                 helpers: {
-                     title: {
-                         type: 'inside',
-                         /*position: 'top'*/
-                     }
-                 },
-                 beforeLoad: function () {
-                     this.title = $(this.element).next('.desc').html();
-
-                 }
-             });
-         });
-    </script>
+    {% include "blocks/owlCarusel_head_extra.html" %}
 {% endblock head-extra %}

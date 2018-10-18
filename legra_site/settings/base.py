@@ -30,6 +30,9 @@ INSTALLED_APPS = [
     'blog',
     'design_work',
     'search',
+    'owlpage',
+    'django_activeurl',
+    'wagtail.contrib.modeladmin',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -133,6 +136,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

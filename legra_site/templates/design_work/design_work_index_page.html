@@ -1,77 +1,15 @@
-{% extends "base.html" %}
+{% extends "owl_carusel_page.html" %}
 
-{% load static wagtailcore_tags wagtailimages_tags %}
-
-
-{% block body_class %} template-homepage {% endblock %}
-
-{% block content %}
-    <div id="main">
-        <div class="container">
-
-            <div class="holder-fon">
-
-                <div class="holder-text">
-
-                    <nav class="gmenu">
-                        <a id="works" class="active" href="works.html">работы</a>
-                        <a id="design" href="designp.html">дизайн проект</a>
-                    </nav>
-
-                    {% include "blocks/design_images_table.html" %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+{% block owl_menu %}
+  {% include "blocks/design_work_menu.html" %}
 {% endblock %}
 
-{% block head-extra %}
-    <!-- Owl Carousel Assets -->
-    <link href="{% static 'js/libs/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'js/libs/owl-carousel/owl.theme.css' %}" rel="stylesheet">
-    <script src="{% static 'js/libs/owl-carousel/owl.carousel.js' %}"></script>
 
-    <!-- Add fancyBox -->
-    <script type="text/javascript" src="{% static 'js/libs/fancybox/jquery.fancybox.pack.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'js/libs/fancybox/jquery.fancybox.css' %}">
-    <script>
-         $(document).ready(function() {
-             $("#owl-demo").owlCarousel({
-
-                 navigation: true,
-                 slideSpeed: 300,
-                 paginationSpeed: 400,
-                 navigationText: [" ", " "],
-                 singleItem: true,
-                 scrollPerPage: false,
-                 pagination: false
+{% block owl_carusel %}
+  {% include "blocks/design_images_table.html" %}
+{% endblock %}
 
 
-                 // "singleItem:true" is a shortcut for:
-                 // items : 1,
-                 // itemsDesktop : false,
-                 // itemsDesktopSmall : false,
-                 // itemsTablet: false,
-                 // itemsMobile : false
-
-             });
-             $(".fancybox").fancybox({
-                 helpers: {
-                     title: {
-                         type: 'inside',
-                         /*position: 'top'*/
-                     }
-                 },
-                 beforeLoad: function () {
-                     this.title = $(this.element).next('.desc').html();
-
-                 }
-             });
-         });
-    </script>
-{% endblock head-extra %}
 
 
 

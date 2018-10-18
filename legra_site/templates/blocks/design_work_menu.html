@@ -1,0 +1,8 @@
+{% load activeurl wagtailcore_tags  %}
+
+{% activeurl parent_tag="a"%}
+  <nav class="gmenu">
+      <a id="works"  href="{% slugurl 'design-works' %}" >работы</a>
+      <a id="design" href="{% slugurl 'project-composition' %}">дизайн проект</a>
+  </nav>
+{% endactiveurl %}

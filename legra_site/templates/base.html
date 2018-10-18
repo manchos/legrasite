@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar navigation_tags%}
 
 
 <!DOCTYPE html>
@@ -23,7 +23,10 @@
             {% block messages %}
                 {% include "includes/messages.html" %}
             {% endblock messages %}
-
+{#            {% block breadcrumbs %}#}
+{#                 breadcrumbs is defined in base/templatetags/navigation_tags.py#}
+{#                {% breadcrumbs %}#}
+{#            {% endblock breadcrumbs %}#}
 
             {% block content %}
             {% endblock content %}

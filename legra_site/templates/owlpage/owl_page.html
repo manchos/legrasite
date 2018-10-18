@@ -1,0 +1,19 @@
+{% extends "owl_carusel_page.html" %}
+
+{% block owl_menu %}
+  {% include "blocks/design_work_menu.html" %}
+{% endblock %}
+
+{% block owl_carusel %}
+  <div class="owl-wrap">
+      <div id="owl-demo" class="owl-carousel">
+      {% for block in page.body %}
+        {% if block.block_type == 'owl_paragraph' %}
+          <div class="sliderdiv item">
+              {{ block.value }}
+          </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+  </div>
+{% endblock %}

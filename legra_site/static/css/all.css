@@ -350,11 +350,8 @@ span.current{
     margin: 0 auto;
     width:590px;
     height: 434px;
-    padding:10px;
+    /*padding:10px;*/
     filter: Alpha(Opacity=50);
-    
-   
-
 }
 
 .sliderdiv ul{
@@ -541,6 +538,7 @@ span.current{
 .holder-text .fancybox-title{
     font-family: 'Cuprum';
 }
+
 .breadcrumps{
     margin-bottom: 30px;
 }

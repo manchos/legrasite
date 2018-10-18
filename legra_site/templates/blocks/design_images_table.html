@@ -1,25 +1,38 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-<div id="owl-demo" class="owl-carousel">
-    {% for table in designs %}
-        <div class="sliderdiv item">
-            <table class="slidertab">
-            {% for row in table %}
-                <tr>
-                {% for col in row %}
-                    <td>
-
-                        {% image col.image fill-133x133-c100 as image %}
-                        <a class="fancybox" rel="group" href="/media/{{ col.image.file }}">
-                            <img src="{{ image.url }}" width="{{ image.width }}"
-                                 height="{{ image.height }}" alt="{{ image.alt }}" class="" />
-                        </a>
-                        <div class="desc">Проект квартиры в ЖК "Дубровка"<br /><a href="work.html">Подробнее</a></div>
-                    </td>
+<div class="owl-wrap">
+    <div id="owl-demo" class="owl-carousel">
+        {% for table in designs %}
+            <div class="sliderdiv item">
+                <table class="slidertab">
+                {% for row in table %}
+                    <tr>
+{#                    {{ row }}#}
+                    {% for col in row %}
+{#                      {{ col }}#}
+                        <td>
+{#                            {{ col.body }}#}
+                          {% for block in col.body %}
+                            {% if block.block_type == 'image_block' and forloop.first %}
+{#                              <b>dfgdfg</b>#}
+{#                              {% include_block col.body %}#}
+{#                              {{ block }}#}
+                              {% image block.value.image fill-133x133-c100 as image %}
+                              <a class="fancybox" rel="group" href="/media/{{ block.value.image.file }}">
+                                  <img src="{{ image.url }}" width="{{ image.width }}"
+                                       height="{{ image.height }}" alt="{{ block.value.caption }}" class="" />
+                              </a>
+                              <div class="desc">{{ col.title }}<br /><a href="work.html">Подробнее</a></div>
+                            {% endif %}
+                          {% endfor %}
+                        </td>
+                    {% endfor %}
+                    </tr>
                 {% endfor %}
-                </tr>
-            {% endfor %}
-            </table>
-        </div>
-    {% endfor %}
+                </table>
+            </div>
+
+        {% endfor %}
+
+    </div>
 </div>

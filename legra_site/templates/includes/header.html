@@ -1,17 +1,23 @@
 {#% load navigation_tags %#}
 {% load static %}
+{% load wagtailcore_tags %}
+
+{% load activeurl %}
 
 <header id="header">
     <div class="container">
         <strong class="logo"><a href="#">Legra</a></strong>
         <div class="holder-header">
+          {% activeurl parent_tag="li" %}
             <nav id="nav">
                 <ul>
-                    <li><a href="/design-works">интерьеры</a></li>
-                    <li><a href="designs.html">графический дизайн</a></li>
+                    <li><a href="{% slugurl 'design-works' %}"  >интерьеры</a></li>
+                    <li><a href={% slugurl 'project-composition' %}>графический дизайн</a></li>
                     <li><a href="#">другое</a></li>
                 </ul>
+              <b>{{ page.title }} </b>
             </nav>
+          {% endactiveurl %}
             <div class="holder-contact">
                 <a class="home active" href="index.html">home</a>
                 <a class="mail" href="contacts.html">mail</a>

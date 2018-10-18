@@ -16,7 +16,7 @@ class ImageBlock(StructBlock):
 
     class Meta:
         icon = 'image'
-        # template = "blocks/image_block.html"
+        template = "blocks/image_block.html"
         form_classname = 'Изображение'
 
 
