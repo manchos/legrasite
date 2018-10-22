@@ -3,6 +3,8 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page, Collection
 from home.blocks import ImageBlock, BaseStreamBlock
 from design_work.aux import get_table_list
+from wagtail.snippets.models import register_snippet
+from owlpage.models import OwlPage
 
 
 from pytils.translit import slugify
@@ -11,29 +13,59 @@ from wagtail.admin.edit_handlers import (
     FieldPanel, MultiFieldPanel, StreamFieldPanel
     )
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 # Create your models here.
 from wagtail.search import index
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
+@register_snippet
+class DesignKind(models.Model):
+    name = models.CharField(max_length=255)
+
+    panels = [
+        FieldPanel('name'),
+    ]
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Вид дизанерских работ'
+        verbose_name_plural = 'Виды дизанерских работ'
 
 
 class DesignWorkPage(Page):
     """
     Detail view for a specific DesignWork
     """
+    # INTERIORS = 'ID'
+    # GRAPHICS = 'GD'
+    # OTHERS = 'OD'
+    # DESIGN_CHOICES = (
+    #     (INTERIORS, 'Интерьеры'),
+    #     (GRAPHICS, 'Графический'),
+    #     (OTHERS, 'Другой'),
+    # )
+    #
+    # design = models.CharField(
+    #     max_length=2,
+    #     choices=DESIGN_CHOICES,
+    #     default=INTERIORS,
+    # )
+    design_kind = models.ForeignKey(
+        'design_work.DesignKind',
+        on_delete=models.SET_NULL,
+        related_name='+',
+        null=True,
+        verbose_name="Вид дизанерских работ",
+    )
+
     description = RichTextField(
         help_text='Text to describe the page',
         blank=True,
         verbose_name="Описание",
     )
-    # image = models.ForeignKey(
-    #     'wagtailimages.Image',
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',
-    #     verbose_name="Основное изображение",
-    #     help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
-    # )
 
     sequence_number = models.PositiveSmallIntegerField(
         blank=True,
@@ -51,6 +83,7 @@ class DesignWorkPage(Page):
     # collision.
 
     content_panels = Page.content_panels + [
+        SnippetChooserPanel('design_kind'),
         FieldPanel('description', classname="full"),
         FieldPanel('sequence_number'),
         # ImageChooserPanel('image'),
@@ -83,30 +116,19 @@ class DesignWorkPage(Page):
         verbose_name_plural = 'Дизайн страницы'
 
 
-
 class DesignWorkIndexPage(Page):
-    menu_label = 'Страница с таблицей изображений без перехода'
+    menu_label = 'Страница с таблицей изображений'
 
     introduction = models.TextField(
         help_text='Text to describe the page',
         blank=True)
-
-   # image = models.ForeignKey(
-    #     'wagtailimages.Image',
-    #     null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',
-    #     help_text='Landscape mode only; horizontal width between 1000px and '
-    #     '3000px.'
-    # )
 
     content_panels = Page.content_panels + [
         FieldPanel('introduction', classname="full"),
         # ImageChooserPanel('image'),
     ]
 
-    subpage_types = ['DesignWorkPage']
+    subpage_types = ['DesignWorkPage', 'owlpage.OwlPage']
 
     # Returns a queryset of Page objects that are live, that are direct
     # descendants of this index page with most recent first
@@ -146,7 +168,6 @@ class DesignWorkIndexPage(Page):
         context['mount'] = len(designs)
         return context
 
-    # class Meta:
-        # verbose_name = 'Страница с таблицей изображений без перехода'
-        # verbose_name_plural = 'Авторы'
-
+    class Meta:
+        verbose_name = 'Дизайн-работы с таблицей изображений'
+        verbose_name_plural = 'Перечень работ с таблицей изображений'

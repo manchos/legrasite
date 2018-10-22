@@ -382,7 +382,7 @@ span.current{
 .holder-text{
     position: relative;
     z-index: 3;
-    padding: 90px 25px 0 25px;
+    padding: 0px 25px 0 25px;
 }
 
 .slidertab img:hover{
@@ -417,7 +417,7 @@ span.current{
     Gorisontal menu
 ============================================================   */
 .gmenu{
-    margin: -80px auto 30px -22px;
+    margin: 0px auto 30px -22px;
     
 }
 

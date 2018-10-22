@@ -4,7 +4,7 @@
 {#    {% image self.image fill-600x600 %}#}
 {#    <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>#}
 {#</figure>#}
-{% if value.attribution == 'main' %}
+{% if value.main %}
 {% image value.image fill-133x133-c100 as image %}
 <a class="fancybox" rel="group" href="/media/{{ value.image.file }}">
     <img src="{{ image.url }}" width="{{ image.width }}"

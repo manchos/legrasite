@@ -1,7 +1,8 @@
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.core.blocks import (
-    CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock,
+    CharBlock, ChoiceBlock, RichTextBlock,
+    StreamBlock, StructBlock, TextBlock, BooleanBlock
 )
 
 
@@ -13,6 +14,7 @@ class ImageBlock(StructBlock):
     image = ImageChooserBlock(required=True, label="Изображение")
     caption = CharBlock(required=False, label='Описание')
     attribution = CharBlock(required=False, label='др. аттрибуты')
+    main = BooleanBlock(required=False, label='показывать первым')
 
     class Meta:
         icon = 'image'

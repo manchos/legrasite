@@ -11,19 +11,28 @@
                     {% for col in row %}
 {#                      {{ col }}#}
                         <td>
-{#                            {{ col.body }}#}
                           {% for block in col.body %}
+                            {% if  block.block_type == 'image_block' and col.body|length == 1 %}
+                              {% image block.value.image fill-133x133-c100 as image %}
+                              <a class="fancybox" rel="group" href="/media/{{ block.value.image.file }}" title="{{ col.title }}">
+                                  <img src="{{ image.url }}" width="{{ image.width }}"
+                                       height="{{ image.height }}" alt="{{ block.value.caption }}" class="" />
+                              </a>
+                              <div class="desc">{{ col.title }}<br />{{ col.description }}</div>
+                            {% else %}
+
                             {% if block.block_type == 'image_block' and forloop.first %}
 {#                              <b>dfgdfg</b>#}
 {#                              {% include_block col.body %}#}
 {#                              {{ block }}#}
                               {% image block.value.image fill-133x133-c100 as image %}
-                              <a class="fancybox" rel="group" href="/media/{{ block.value.image.file }}">
+
+                              <a  href="{% slugurl col.slug %}" title="{{ col.title }}">
                                   <img src="{{ image.url }}" width="{{ image.width }}"
                                        height="{{ image.height }}" alt="{{ block.value.caption }}" class="" />
                               </a>
-                              <div class="desc">{{ col.title }}<br /><a href="work.html">Подробнее</a></div>
-                            {% endif %}
+                              <div class="desc">{{ col.title }}  {{ col.description }}<br /><a href="work.html">Подробнее</a></div>
+                            {% endif %}{% endif %}
                           {% endfor %}
                         </td>
                     {% endfor %}

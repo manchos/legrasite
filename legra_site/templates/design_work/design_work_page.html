@@ -1,47 +1,39 @@
-{% extends "base.html" %}
+{% extends "owl_carusel_page.html" %}
 
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %} template-homepage {% endblock %}
-
-{% block content %}
-    <div id="main">
-                <div class="container">
-                    <div class="holder-fon">
-
-                        <div class="holder-text">
-
-                            <div class="owl-wrap">
-                                <div id="owl-demo" class="owl-carousel">
-                                {% for table in designs %}
-                                    <div class="sliderdiv item">
-                                        <table class="slidertab">
-                                        {% for row in table %}
-                                            <tr>
-                                            {% for col in row %}
-                                                <td>
-                                                    {% image col.value.image fill-133x133-c100 as image %}
-                                                    <a class="fancybox" rel="group" href="/media/{{ col.value.image.file }}">
-                                                        <img src="{{ image.url }}" width="{{ image.width }}"
-                                                             height="{{ image.height }}" alt="{{ image.alt }}" class="" />
-                                                    </a>
-                                                    <div class="desc">{{ col.value.caption }}</div>
-                                                </td>
-                                            {% endfor %}
-                                            </tr>
-                                        {% endfor %}
-                                        </table>
-                                    </div>
-                                {% endfor %}
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+{% block owl_header%}
+  <h4>{{ page.title }}</h4>
 {% endblock %}
 
-{% block head-extra %}
-    {% include "blocks/owlCarusel_head_extra.html" %}
-{% endblock head-extra %}
+{% block owl_menu %}
+  {% include "blocks/design_work_menu.html" %}
+{% endblock %}
+
+
+{% block owl_carusel %}
+<div class="owl-wrap">
+  <div id="owl-demo" class="owl-carousel">
+  {% for table in designs %}
+      <div class="sliderdiv item">
+          <table class="slidertab">
+          {% for row in table %}
+              <tr>
+              {% for col in row %}
+                  <td>
+                      {% image col.value.image fill-133x133-c100 as image %}
+                      <a class="fancybox" rel="group" href="/media/{{ col.value.image.file }}" title="{{ col.value.caption }}">
+                          <img src="{{ image.url }}" width="{{ image.width }}"
+                               height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+                      </a>
+                      <div class="desc">{{ col.value.caption }}</div>
+                  </td>
+              {% endfor %}
+              </tr>
+          {% endfor %}
+          </table>
+      </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

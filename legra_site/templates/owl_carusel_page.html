@@ -2,7 +2,7 @@
 
 {% load static wagtailcore_tags wagtailimages_tags activeurl%}
 
-{% block body_class %} template-homepage {% endblock %}
+
 
 {% block content %}
     <div id="main">
@@ -11,8 +11,13 @@
 
                 <div class="holder-text">
 
+
                   {% block owl_menu %}
                   {% endblock %}
+
+                  {% block owl_header %}
+                  {% endblock %}
+
 
                   {% block owl_carusel %}
                   {% endblock %}
