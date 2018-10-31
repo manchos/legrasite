@@ -17,20 +17,6 @@ def get_site_root(context):
     # attribute 'get_children')
     return context['request'].site.root_page
 
-@register.simple_tag(takes_context=True)
-def get_last_ancestor(context):
-    # Find closest ancestor which is an event index
-    parent = context['page'].get_parent()
-    if parent.depth == 4 :
-        return parent.get_parent()
-    # return parent.get_parent()
-
-
-@register.simple_tag(takes_context=True)
-def check_need_submenu(context, depth=4):
-    page = context['page']
-    if (page.depth == 5):
-        return page
 
 
 def has_menu_children(page):

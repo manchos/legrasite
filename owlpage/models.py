@@ -21,6 +21,8 @@ class OwlPage(Page):
     def get_context(self, request):
         context = super(OwlPage, self).get_context(request)
         context['current_url'] = self.get_url()
+        ancestors = self.get_ancestors().specific()
+        context['ancestors_slugs'] = [anc.slug for anc in ancestors]
         return context
 
     class Meta:

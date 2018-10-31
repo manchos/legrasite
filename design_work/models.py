@@ -88,6 +88,8 @@ class DesignWorkPage(Page, Orderable):
         # designs = self.paginate(request, self.get_designs())
         # designs = self.get_designs()
         context['designs'] = get_table_list(self.body, columns=4, rows=3)
+        ancestors = self.get_ancestors().specific()
+        context['ancestors_slugs'] = [anc.slug for anc in ancestors]
         return context
 
     def save(self, *args, **kwargs):
@@ -158,7 +160,8 @@ class DesignWorkIndexPage(Page):
         # designs = self.paginate(request, self.get_designs())
         designs = self.get_designs()
         context['designs'] = get_table_list(designs, columns=4, rows=3)
-        context['mount'] = len(designs)
+        ancestors = self.get_ancestors().specific()
+        context['ancestors_slugs'] = [anc.slug for anc in ancestors]
         return context
 
     def save(self, *args, **kwargs):

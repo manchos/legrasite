@@ -18,7 +18,7 @@
                                   <img src="{{ image.url }}" width="{{ image.width }}"
                                        height="{{ image.height }}" alt="{{ block.value.caption }}" class="" />
                               </a>
-                              <div class="desc">{{ col.title }}<br />{{ col.description }}</div>
+                              <div class="desc">{{ col.title }}<br />{{ col.description|richtext }}</div>
                             {% else %}
 
                             {% if block.block_type == 'image_block' and forloop.first %}

@@ -1,4 +1,4 @@
-{#% load navigation_tags %#}
+{% load navigation_tags %}
 {% load static %}
 {% load wagtailcore_tags %}
 
@@ -6,14 +6,22 @@
 
 <header id="header">
     <div class="container">
-        <strong class="logo"><a href="#">Legra</a></strong>
+    {% get_site_root as site_root %}
+        <strong class="logo"><a href="{% pageurl site_root %}">Legra</a></strong>
         <div class="holder-header">
           {% activeurl parent_tag="li" %}
             <nav id="nav">
                 <ul>
-                    <li><a href="{% slugurl 'works' %}"  >интерьеры</a></li>
-                    <li><a href={% slugurl 'logotypes-tm' %}>графический дизайн</a></li>
-                    <li><a href={% slugurl 'other-design' %}>другое</a></li>
+                    <li {% if  'interior-design' in  ancestors_slugs %} class="active" {% endif %}>
+                      {{ ancestors_slugs }}
+                      <a href="{% slugurl 'works' %}"  >интерьеры</a>
+                    </li>
+                    <li {% if  'graphic-design'  in  ancestors_slugs %} class="active" {% endif %}>
+                      <a href={% slugurl 'logotypes-tm' %}>графический дизайн</a>
+                    </li>
+                    <li{% if 'other-design' in  ancestors_slugs %} class="active" {% endif %}>
+                      <a href={% slugurl 'other-design' %}>другое</a>
+                    </li>
                 </ul>
             </nav>
           {% endactiveurl %}

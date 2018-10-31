@@ -1,7 +1,8 @@
 {% extends "owl_carusel_page.html" %}
+{% load navigation_tags %}
 
 {% block owl_menu %}
-  {% include "blocks/design_work_menu.html" %}
+  {% top_menu parent=page calling_page=self %}
 {% endblock %}
 
 {% block owl_carusel %}
