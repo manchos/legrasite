@@ -2,6 +2,7 @@
 *.pyc
 *.log
 *.swp
+*.json
 *.retry
 .env
 *~
@@ -23,3 +24,7 @@ media/
 __init__.py
 /legra_site/static/images/
 /legra_site/static/js/libs/
+static/wagtail*
+static/admin
+static/django_extensions
+static/images

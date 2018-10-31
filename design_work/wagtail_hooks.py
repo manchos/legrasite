@@ -13,7 +13,7 @@ class InteriorDesignPageAdmin(ModelAdmin):
     list_display = ('title', 'body', 'sequence_number', 'design_kind')
     list_filter = ('title',)
     search_fields = ('title',)
-    ordering = ['sequence_number']
+    # ordering = ['sequence_number']
     list_per_page = 12
 
     # def get_queryset(self, request):

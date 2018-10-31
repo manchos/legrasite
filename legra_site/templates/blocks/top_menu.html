@@ -1,0 +1,11 @@
+{% load navigation_tags wagtailcore_tags activeurl%}
+
+{% if menuitems %}
+  {% activeurl parent_tag="a"%}
+    <nav class="gmenu">
+    {% for menuitem in menuitems %}
+      <a id="{{  menuitem.slug }}" href="{% slugurl menuitem.slug %}" >{{ menuitem.title }}</a>
+    {% endfor %}
+    </nav>
+  {% endactiveurl %}
+{% endif %}

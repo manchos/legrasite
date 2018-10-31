@@ -1,6 +1,6 @@
 from django.db import models
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.core.models import Page, Collection
+from wagtail.core.models import Page, Orderable, Collection
 from home.blocks import ImageBlock, BaseStreamBlock
 from design_work.aux import get_table_list
 from wagtail.snippets.models import register_snippet
@@ -35,24 +35,10 @@ class DesignKind(models.Model):
         verbose_name_plural = 'Виды дизанерских работ'
 
 
-class DesignWorkPage(Page):
+class DesignWorkPage(Page, Orderable):
     """
     Detail view for a specific DesignWork
     """
-    # INTERIORS = 'ID'
-    # GRAPHICS = 'GD'
-    # OTHERS = 'OD'
-    # DESIGN_CHOICES = (
-    #     (INTERIORS, 'Интерьеры'),
-    #     (GRAPHICS, 'Графический'),
-    #     (OTHERS, 'Другой'),
-    # )
-    #
-    # design = models.CharField(
-    #     max_length=2,
-    #     choices=DESIGN_CHOICES,
-    #     default=INTERIORS,
-    # )
     design_kind = models.ForeignKey(
         'design_work.DesignKind',
         on_delete=models.SET_NULL,
@@ -111,6 +97,11 @@ class DesignWorkPage(Page):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+    # def check_need_of_menu(self, depth=4):
+    #     parent = self.get_parent()
+    #     return parent.depth == depth if True else False
+
+
     class Meta:
         verbose_name = 'Дизайн страница'
         verbose_name_plural = 'Дизайн страницы'
@@ -128,20 +119,22 @@ class DesignWorkIndexPage(Page):
         # ImageChooserPanel('image'),
     ]
 
-    subpage_types = ['DesignWorkPage', 'owlpage.OwlPage']
+    subpage_types = ['DesignWorkPage', 'owlpage.OwlPage', 'DesignWorkIndexPage']
 
     # Returns a queryset of Page objects that are live, that are direct
     # descendants of this index page with most recent first
     def get_designs(self):
         # return DesignWorkPage.objects.live().descendant_of(
         #     self).order_by('-first_published_at')
-        return DesignWorkPage.objects.live().descendant_of(self).order_by('sequence_number')
+        return DesignWorkPage.objects.live().descendant_of(self)
+            # .order_by('sequence_number')
 
     # Allows child objects (e.g. DesignWorkPage objects) to be accessible via the
     # template. We use this on the HomePage to display child items of featured
     # content
     def children(self):
         return self.get_children().specific().live()
+
 
     # Pagination for the index page. We use the `django.core.paginator` as any
     # standard Django app would, but the difference here being we have it as a
@@ -167,6 +160,13 @@ class DesignWorkIndexPage(Page):
         context['designs'] = get_table_list(designs, columns=4, rows=3)
         context['mount'] = len(designs)
         return context
+
+    def save(self, *args, **kwargs):
+        if self.slug:
+            self.slug = slugify(self.slug)
+        else:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Дизайн-работы с таблицей изображений'

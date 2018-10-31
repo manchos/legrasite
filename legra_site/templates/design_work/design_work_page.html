@@ -1,15 +1,17 @@
 {% extends "owl_carusel_page.html" %}
 
 {% load static wagtailcore_tags wagtailimages_tags %}
+{% load navigation_tags %}
+
+
 
 {% block owl_header%}
   <h4>{{ page.title }}</h4>
 {% endblock %}
 
 {% block owl_menu %}
-  {% include "blocks/design_work_menu.html" %}
+  {% top_menu parent=page calling_page=self %}
 {% endblock %}
-
 
 {% block owl_carusel %}
 <div class="owl-wrap">
