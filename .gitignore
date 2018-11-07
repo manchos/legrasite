@@ -28,3 +28,4 @@ static/wagtail*
 static/admin
 static/django_extensions
 static/images
+/local_settings.py

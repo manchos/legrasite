@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.56.10']
+
 
 # Application definition
 
@@ -107,16 +107,7 @@ WSGI_APPLICATION = 'legra_site.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # указываем, что база данных postgresql
-        'NAME': 'legrasite', # Название вашей базы данных
-        'USER': 'legradmin',
-        'PASSWORD': 'star2018',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
