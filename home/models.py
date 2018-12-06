@@ -23,20 +23,25 @@ from wagtail.snippets.models import register_snippet
 
 
 class HomePage(Page):
-    body = RichTextField(blank=True)
+    # body = RichTextField(blank=True)
+    body = StreamField(BaseStreamBlock())
 
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text='Homepage image'
-    )
+    # image = models.ForeignKey(
+    #     'wagtailimages.Image',
+    #     null=True,
+    #     blank=True,
+    #     on_delete=models.SET_NULL,
+    #     related_name='+',
+    #     help_text='Homepage image'
+    # )
+
+    # content_panels = Page.content_panels + [
+    #     FieldPanel('body', classname="full"),
+    #     ImageChooserPanel('image'),
+    # ]
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
-        ImageChooserPanel('image'),
+        StreamFieldPanel('body'),
     ]
 
 

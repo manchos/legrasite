@@ -55,7 +55,7 @@ ul, ol {list-style:none; margin:0 0 10px; padding:0;}
 dl {margin:0 0 10px;}
 nav ul, nav ol {list-style:none; list-style-image: none; margin:0; padding:0;}
 ul li {list-style: none; list-style: none outside;}
-p {margin:0 0 10px;}
+/*p {margin:0 0 10px;}*/
 h1 {font-size:30px; line-height:33px; margin:0 0 18px;}
 h2 {font-size:50px; line-height:50px; margin:0 0 18px;}
 h3 {font-size:26px; line-height:29px; margin:0 0 16px;}
@@ -379,11 +379,7 @@ span.current{
     vertical-align: middle;
     padding: 5px;
 }
-.holder-text{
-    position: relative;
-    z-index: 3;
-    padding: 0px 25px 0 25px;
-}
+
 
 .slidertab img:hover{
     /*filter: Alpha(Opacity=100);
@@ -521,13 +517,6 @@ span.current{
 
 /*------------------------- Cjcnfd --------------------------*/
 
-
-
-
-
-
-
-
 .holder-text .fancybox-title{
     font-family: 'Cuprum';
 }
@@ -545,5 +534,19 @@ span.current{
 .breadcrumps a:hover{
     text-decoration: underline;
     
+
 }
 
+/*--------------------------Draftail-----------------------------------------------------*/
+
+.rich-text blockquote{
+    font-size: 18pt;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+
+.holder-fon .text-content{
+    z-index: 3;
+    position: relative;
+    padding: 70px 30px 20px 80px;
+}

@@ -4,7 +4,7 @@ from decouple import config
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.56.10']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('ALLOWED_HOST')]
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')

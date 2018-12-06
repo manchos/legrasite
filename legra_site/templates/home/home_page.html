@@ -11,15 +11,31 @@
 
 {% top_menu parent=site_root calling_page=self %}
 
-
-    <div id="main">
-        <div class="container">
-            <div class="holder-fon">
-                <div class="holder-girl">{% image page.image max-500x1000%}</div>
-                <div class="holder-text">
-                    {{ page.body | richtext }}
-                </div>
+  <div id="main">
+    <div class="container">
+      <div class="holder-fon">
+            <div class="text-content">
+              {% for block in page.body %}
+                {% if block.block_type == 'image_block' %}
+                  {% include_block block %}
+                {% elif block.block_type == 'paragraph_block' %}
+                  <div class="holder-text">
+                    {{ block.value }}
+                  </div>
+                {% else %}
+                    <section class="block-{{ block.block_type }}">
+                        {% include_block block %}
+                    </section>
+                {% endif %}
+            {% endfor %}
             </div>
+          </div>
+{#           #}
+{#                {% image page.image max-500x1000%}#}
+{#                <div class="holder-text">#}
+{#                    {{ page.body | richtext }}#}
+{#                </div>#}
+{#            #}
         </div>
 
     </div>
