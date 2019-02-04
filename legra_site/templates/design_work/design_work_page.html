@@ -3,7 +3,10 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 {% load navigation_tags %}
 
-
+{% block breadcrumbs %}
+    {# breadcrumbs is defined in base/templatetags/navigation_tags.py #}
+    {% breadcrumbs %}
+{% endblock breadcrumbs %}
 
 {% block owl_header%}
   <h4>{{ page.title }}</h4>
@@ -12,6 +15,8 @@
 {% block owl_menu %}
   {% top_menu parent=page calling_page=self %}
 {% endblock %}
+
+
 
 {% block owl_carusel %}
 <div class="owl-wrap">

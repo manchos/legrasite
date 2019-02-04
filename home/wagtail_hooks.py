@@ -18,7 +18,8 @@ def register_blockquote_feature(features):
         'label': '❝',
         'description': 'Blockquote',
         # Optionally, we can tell Draftail what element to use when displaying those blocks in the editor.
-        'element': 'blockquote',
+        # 'element': 'blockquote',
+        'style': {'textDecoration': 'line-through'},
     }
 
     features.register_editor_plugin(
@@ -29,5 +30,6 @@ def register_blockquote_feature(features):
         'from_database_format': {tag: BlockElementHandler(type_)},
         'to_database_format': {'block_map': {type_: tag}},
     })
+
 
     features.default_features.append('blockquote')

@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
-{% load static wagtailcore_tags wagtailimages_tags activeurl%}
 
+
+{% load static wagtailcore_tags wagtailimages_tags activeurl%}
+{% load navigation_tags %}
 
 
 {% block content %}
@@ -15,9 +17,11 @@
                   {% block owl_menu %}
                   {% endblock %}
 
+                  {% block breadcrumbs %}
+                  {% endblock breadcrumbs %}
+
                   {% block owl_header %}
                   {% endblock %}
-
 
                   {% block owl_carusel %}
                   {% endblock %}

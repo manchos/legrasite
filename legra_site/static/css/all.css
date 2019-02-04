@@ -8,14 +8,12 @@ body {
     background: url("../images/img-1.jpg") repeat;
 }
 
-/*@font-face {
+@font-face {
     font-family: 'Cuprum';
-    src: url('../fonts/cuprum.eot');
-    src: local('☺'), url('../fonts/cuprum.woff') format('woff'), url('../fonts/cuprum.ttf') format('truetype'), url('../fonts/cuprum.svg') format('svg');
-    font-weight: normal;
     font-style: normal;
-}*/
-
+    font-weight: 400;
+    src: local('Cuprum'), local('Cuprum-Regular'), url('../fonts/cuprum.woff') format('woff'), url('../fonts/cuprum.ttf') format('truetype')
+}
 
 img {
     border-style:none;
@@ -59,7 +57,13 @@ ul li {list-style: none; list-style: none outside;}
 h1 {font-size:30px; line-height:33px; margin:0 0 18px;}
 h2 {font-size:50px; line-height:50px; margin:0 0 18px;}
 h3 {font-size:26px; line-height:29px; margin:0 0 16px;}
-h4 {font-size:24px; line-height:27px; margin:0 0 14px;}
+h4 {
+    font-size:24px;
+    font-family: 'Cuprum', arial;
+    line-height:27px;
+    padding-left: 20px;
+    margin:0 0 14px;
+}
 h5 {font-size:22px; line-height:25px; margin:0 0 12px;}
 h6 {font-size:20px; line-height:23px; margin:0 0 10px;}
 a { text-decoration:none; outline:none;}
@@ -173,7 +177,7 @@ html,body {
 }
 #nav li.active:first-child a,
 #nav li:first-child a:hover{
-    background: url('../images/bg-sprite.png') no-repeat -89px -99px;
+    background: url('../images/bg-sprite.png') no-repeat -84px -94px;
 }
 #nav li:nth-child(2){
     margin: 0 0 2px 1px
@@ -204,7 +208,7 @@ html,body {
 .holder-contact{
     position: relative;
     z-index: 2;
-    padding: 16px 0 0 233px;
+    padding: 0px 0 0 233px;
     font-size: 0;
     line-height: 0;
 }
@@ -217,7 +221,8 @@ html,body {
 #home{
     background: url('../images/work_knopki_off.png') no-repeat -40px -265px;
     width: 108px;
-    height: 83px;
+    height: 94px;
+    margin: 5px 0 0 0px;
 }
 a#home.active,
 #home:hover{
@@ -226,8 +231,8 @@ a#home.active,
 #mail {
     background: url('../images/work_knopki_off.png') no-repeat -161px -257px;
     width: 108px;
-    height: 81px;
-    margin: 10px 0 0 21px;
+    height: 100px;
+    margin: 0px 0 0 21px;
 }
 a#mail.active,
 #mail:hover{
@@ -304,10 +309,17 @@ p.contacts{
     background: url("../images/img-7.jpg") repeat;
     height: 111px;
 }
+.holder-text-home{
+    position: relative;
+    z-index: 3;
+    /*padding: 0px 73px 0 25px;*/
+    padding: 1px 20px 0px 0px;
+}
 .holder-text{
     position: relative;
     z-index: 3;
-    padding: 90px 73px 0 25px;
+    /*padding: 0px 73px 0 25px;*/
+    padding: 1px 0px 0px 10px;
 }
 #footer {
     text-align: center;
@@ -413,7 +425,7 @@ span.current{
     Gorisontal menu
 ============================================================   */
 .gmenu{
-    margin: 0px auto 30px -22px;
+    margin: 0px auto 10px 0px;
     
 }
 
@@ -533,20 +545,79 @@ span.current{
 
 .breadcrumps a:hover{
     text-decoration: underline;
-    
 
+
+}
+
+
+
+/* Breadcrumbs */
+.breadcrumb-container {
+  /*background: linear-gradient(to right, rgba(21,38,44,0.8) 0%,rgba(0,0,0,0.9) 100%);*/
+  margin-top: -1px;
+  position: relative;
+  z-index: 3;
+}
+.breadcrumb-container + content > .hero {
+  margin-top: -36px;
+}
+.breadcrumb {
+    /*background-color: transparent;*/
+  /*color: #ccc;*/
+  /*font-family: 'Lato', sans-serif;*/
+   font-family: 'Cuprum', arial;
+
+    color: #492507;
+  font-size: 18px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 4px #7F6427;
+    font-weight: 600;
+  margin-bottom: 0px;
+  padding-left: 0px;
+    /*font-family: 'Haettenschweiler';*/
+}
+.breadcrumb li {
+    display: inline;
+}
+.breadcrumb a, .breadcrumb .active {
+  /*color: #ccc;*/
+    color: #492507;
+}
+.breadcrumb .active {
+  /*font-weight: bold;*/
+    text-decoration: underline;
+}
+.breadcrumb a:hover {
+  color: #fff;
+  /*text-decoration: none;*/
+    text-decoration: underline;
+}
+.breadcrumb>li+li:before {
+  /*content: "\300B";*/
+    content: "/ ";
+}
+.row {
+    margin-bottom: 20px;
 }
 
 /*--------------------------Draftail-----------------------------------------------------*/
 
 .rich-text blockquote{
-    font-size: 18pt;
-    font-family: "Times New Roman", Times, serif;
-    font-weight: bold;
+    /*font-size: 18pt;*/
+    /*font-family: "Times New Roman", Times, serif;*/
+    /*font-weight: bold;*/
+    margin: 40px 0px 0px 140px;
+    font: 18px/22px "Arial",sans-serif;
+    color: #492507;
 }
 
 .holder-fon .text-content{
     z-index: 3;
     position: relative;
-    padding: 70px 30px 20px 80px;
+    /*padding: 70px 30px 20px 80px;*/
+    /*padding: 1px 30px 20px 0px;*/
+}
+
+Draftail-block--blockquote{
+    padding-left: 100px;
 }

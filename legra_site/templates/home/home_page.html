@@ -3,23 +3,22 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 {% load navigation_tags %}
-
 {% block body_class %} template-homepage {% endblock %}
-
 {% block content %}
   {% get_site_root as site_root %}
-
 {% top_menu parent=site_root calling_page=self %}
-
   <div id="main">
     <div class="container">
       <div class="holder-fon">
             <div class="text-content">
               {% for block in page.body %}
                 {% if block.block_type == 'image_block' %}
-                  {% include_block block %}
+{#                  {% include_block block %}#}
+                  {% image block.value.image  max-800x800 as tmp_photo %}
+                <img {{ tmp_photo.attrs }} {{ block.value.attribution }} />
+
                 {% elif block.block_type == 'paragraph_block' %}
-                  <div class="holder-text">
+                  <div class="holder-text-home">
                     {{ block.value }}
                   </div>
                 {% else %}
@@ -30,15 +29,6 @@
             {% endfor %}
             </div>
           </div>
-{#           #}
-{#                {% image page.image max-500x1000%}#}
-{#                <div class="holder-text">#}
-{#                    {{ page.body | richtext }}#}
-{#                </div>#}
-{#            #}
         </div>
-
     </div>
-
-
 {% endblock %}

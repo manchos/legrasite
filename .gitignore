@@ -33,3 +33,4 @@ static/js
 
 /manage.py
 /legrasite_public_wagtailcore_site.sql
+*.backup

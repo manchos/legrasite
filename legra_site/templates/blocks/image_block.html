@@ -6,12 +6,12 @@
 {#</figure>#}
 {% if value.main %}
   {% image value.image fill-133x133-c100 as image %}
-  <a class="fancybox" rel="group" href="/media/{{ value.image.file }}">
-      <img src="{{ image.url }}" width="{{ image.width }}"
-           height="{{ image.height }}" alt="{{ block.caption }}" class="" />
-  </a>
-  <div class="desc">{{ value.caption }}<br /><a href="work.html">Подробнее</a></div>
-{% else %}
-   {% image self.image  max-800x800 as tmp_photo %}
-  <img {{ tmp_photo.attrs }} {{ self.attribution }} />
+    <a class="fancybox" rel="group" href="/media/{{ value.image.file }}">
+        <img src="{{ image.url }}" width="{{ image.width }}"
+             height="{{ image.height }}" alt="{{ block.caption }}" class="" />
+    </a>
+  {#    <div class="desc">{{ value.caption }}<br /><a href="work.html">Подробнее</a></div>#}
+  {#{% else %}#}
+  {#   {% image self.image  max-800x800 as tmp_photo %}#}
+  {#  <img {{ tmp_photo.attrs }} {{ self.attribution }} />#}
 {% endif %}
