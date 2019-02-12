@@ -564,8 +564,6 @@ span.current{
 .breadcrumb {
     /*background-color: transparent;*/
    font-family: 'Cuprum', arial;
-
-    /*color: #492507;*/
     color: #7F6929;
     font-size: 15px;
     text-transform: uppercase;
@@ -573,7 +571,6 @@ span.current{
     font-weight: 600;
     margin-bottom: 0px;
     padding-left: 0px;
-    /*font-family: 'Haettenschweiler';*/
 }
 .breadcrumb li {
     display: inline;
